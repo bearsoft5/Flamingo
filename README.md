@@ -15,5 +15,5 @@ Version: 0.1.0a (alpha)
 >The **Flamingo** taken the updates to github, and by github the developers can wanna utilize this library, download the *src*.
 ----
 
-Att, bearsoft.
-*Case wanna ask about the **FlamingoLibrary** send a comment*
+Att, bearsoft,
+Ask about the **FlamingoLibrary** send a comment.
