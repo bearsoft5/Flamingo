@@ -1,0 +1,118 @@
+Flamingo:
+
+  Projects
+    FlamingoLibrary
+    Flamingo-mclib (planning)
+
+  Flamingo-mclib: @created(17-02-26 16:19)
+    Version planning.
+
+    This is a minecraft plugin development library.
+    The Flamingo-mclib is a enhancement of ProtocolLib, but this Flamingo-mclib is more simple,
+    but help in anythings about minecraft packets, the Flamingo-mclib is a easy productvity,
+    then the Flamingo-mclib help in the developer be more fast when construct the plugin.
+
+    ☐ Make the Channel.
+      ☐ Make the OutgoingContextChannel.
+        This represents the "outgoing Context" that is the "out-game" that is not in Minecraft.
+      ☐ Make the IngoingContextChannel.
+        This represents the "ingoing Context" that is the "in-game" that is in Minecraft,
+        this represents the messages that player send, and visualization about the "tab" and anothers "server connection informations".
+    ☐ Start the project Flamingo-mclib.
+
+  FlamingoLibrary:
+    Version 0.1.0a (alpha).
+
+    ✘ The FlamingoLibrary, about this library, don't know that continues this library, or migrate to the a one focus project, and the project that will be focus is the (File), like (FileUtils). @cancelled (17-02-26 16:22)
+      ✘ Change the FlamingoLibrary project to the Flamingo-fileutils @cancelled (17-02-26 16:22)
+      ✘ Change the project FlamingoLibrary to project Flamingo-fileutils. @cancelled (17-02-26 16:22)
+
+    ☐ Send the FlamingoLibrary project to GitHub.
+    ✔ Make support to String (String Utils). @done (17-02-24 18:39)
+    ✔ Make support to Object (Object Utils). @done (17-02-24 18:39)
+
+    ✔ Make the FlamingoArray @done (17-02-24 17:07)
+      ✔ Test FlamingoArray performance. @done (17-02-24 17:07)
+      ✔ Test FlamingoArray bugs. @done (17-02-24 17:07)
+      The flamingo array don't are showing bugs,
+      case found a any bug in flamingo array, please create a issue on GitHub.
+      ✔ Rename the FlamingoArray? @done (17-02-25 17:29)
+        The FlamingoArray was renamed to (Functional Array).
+    ✔ Make the Validate class. @done (17-02-25 14:44)
+      This method help in validation the objects, and check the expressions to do continue a method.
+    ✔ Rename the methods of ObjectUtils? @done (17-02-25 15:17)
+    
+    ✔ Make the NetworkUtils. @done (17-02-25 21:22)
+      ✔ Method getMACAddress. @done (17-02-25 21:22)
+        This method get MAC address of computer.
+
+    ☐ FieldUtils, about this create a (interface) that have a method like (invoke()) that make the function when the field is accessible, because the methods function, make the field like accessible, and the function invoke() was invoked, and after the method invoke() make the field like is not accessible.
+      The method that is similar with this, is the setAccessibleWorkaroundInvoke.
+
+    ☐ Make the ReflectionUtils.
+      Make the reflection utils, because help in reflection things.
+      ✔ Make the MemberUtils @done (17-02-24 17:45)
+      ☐ Make support to Reflection Method (Method Utils).
+
+      ✔ Make support to Reflection Field (Field Utils). @done (17-02-25 14:33)
+        ✔ The methods (getField, getDeclaredField) are updated. @done (17-02-25 14:34)
+          This method hasn't a checks about (name and class source),
+          and now if the field is not accessible, make the field like accessible.
+
+          ☐ Put the method about the field accessible, that after use the field, make the field like is not accessible.
+            This basically function like a cache, that a have a time to use the field, and after use the field make the field like not accessible, because make the field like accessible only use to do this, when use the method.
+
+          ✔ The method (readStaticField, readStaticDeclaredField) is added, this method get the value of the static field. @done (17-02-25 15:07)
+            This method also have a check if the field is not static, if the field is not static
+            throw a error.
+
+          ✔ Put the method (writeField, writeDeclaredField, writeStaticField, writeStaticDeclaredField) @done (17-02-25 17:50)
+            This method set the new value to the field.
+              ✔ Method writeField. @done (17-02-25 15:24)
+              ✔ Method writeDeclaredField. @done (17-02-25 15:21)
+              ✔ Method writeStaticField. @done (17-02-25 17:50)
+              ✔ Method writeStaticDeclaredField. @done (17-02-25 17:50)
+
+          ☐ Make the cache field?, the developers that use this library will be use this? Because the (Cache Fields) is the a class that save fields to the other class that help in reflection things, the fields can be (get, write, delete), also the (Cache Field) can be accessible by others classes or no, but yet the Flamingo don't know that this is a good to the productivy or no.
+            The Cache Field is a (Virtual Fields) that help in classes that need a very fast production in fields instead of use reflection.
+            ☐ Make the Virtual Field.
+                Virtual Field, need more planning to do start.
+                Because the Virtual Field, yet don't know that be util.
+              ☐ Make the value, and make if the field is accessible.
+              ☐ Make get() method.
+                This method get value of field.
+              ☐ Make the write() method.
+                This method write the new value of field.
+              ☐ Make the delete() method.
+                This method delete the field.
+
+      ✔ Make support to AccessibleObject @done (17-02-24 17:44)
+      ✔ Removed the (Performance Statistics) that has in comments of (collections like ListUtils and MapUtils), also the renamed the arguments of the methods of classes (ListUtils and MapUtils). @done (17-02-25 15:32)
+        Why removed the performance statistics?
+          Because the performance statistics is a relative with quantity of elements,
+          because the test that was have of performance is not big.
+
+    ✔ Rename the StringUtils methods? @done (17-02-25 11:25)
+      Because the StringUtils methods name, the type name is similar to C and C++.
+        Examples
+          [strrand]                       to [randomString]
+          [strrem]                        to [removeString]
+          [strequal]                      to [equals]
+          [str_isblank]                   to [isBlank]
+          [str_isnotblank]                to [isNotBlank]
+          [str_array_add]                 to [addStringArray]
+          [make_str_array_and_pushArray]  to [makeArrayAndPull]
+          [to_str_array]                  to [toStringArray]
+          [str_is_numeric]                to [isNumericString]
+      The examples don't is a right that this (new names) is the names that will be renamed,
+      Because do this to create a simplify and more easy productivy to developer.
+
+      ✔ The any methods of ObjectUtils are renamed. @done (17-02-25 17:31)
+        (addObjectArray) was renamed to (join)
+      ✔ The any methods of StringUtils are renamed. @done (17-02-25 17:32)
+        (makeArrayAndPull) was renamed to (makeAndPull)
+          Also in this method the arguments are renamed too.
+          (initial_capacity) was renamed to (initialCapacity)
+          (str_a) was renamed to (stringArray)
+        (addStringArray) was renamed to (join)
+
