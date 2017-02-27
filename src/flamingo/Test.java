@@ -21,6 +21,8 @@
  */
 package flamingo;
 
+import flamingo.string.StringUtils;
+
 public class Test {
 
 	int a = 10;
@@ -30,6 +32,7 @@ public class Test {
 
 		long start = System.currentTimeMillis();
 		
+		System.out.println(StringUtils.inverse("AEKOP"));
 		elapsed(start);
 		System.out.println("Finish.");
 	}

@@ -21,10 +21,63 @@ Flamingo:
     ☐ Start the project Flamingo-mclib.
 
   FlamingoLibrary:
-    Version 0.1.1a (alpha).
+    Version 0.1.2a (alpha).
 
     The (Validate) class, was renamed to (Preconditions).
+
+    ☐ Make the support to File (FileUtils).
+      ☐ Make the easily creation of files and directories.
+      ☐ Make the easily copy and paste archives, and move archives.
+
+    ☐ Make the support to HTTP (HTTPUtils).
+      Planning this utils.
+
+    ☐ Make the support to JSON (JSONUtils).
+      This JSONUtils is based on GSON, that is easily JSON.
+      ☐ Make the support a easily creator of JSON String.
+      ☐ Make the support a easily parse of JSON String.
+
+    ☐ Make the support to IOUtils.
+    ☐ Make the support to NIOUtils.
+    ☐ Make the support to Asynchronized functions.
+    ☐ Make the support to MySQL Database Utils.
+      ☐ Make the QueryWrapper.
+        This QueryWrapper is a query that is faster query,
+        And accept async functions to be more faster.
+      ☐ Make a easily MySQL Database Query.
+        This is a MySQL Database Query, that create a "database, table, columns, rows",
+        And functions that MySQL accept.
+      ☐ Make the "IngoingDatabaseWrapper" that is a (class) that have a "informations" about anything and when QueryWrapper query this (class) send the informations to Database.
+      ☐ Make the "OutgoingDatabaseWrapper" that is a (class) that is a connected with the Database and when QueryWrapper query this (class) send the informations of Database to "OutgoingDatabaseWrapper" that is a (class), that receive the all informations of database, or only the informations that QueryWrapper selected.
+      ☐ Make the central of communication of QueryWrapper with Database, and this central receive all informations that will be transported of "QueryWrapper to Database" and "Database to QueryWrapper", and more easily management the informations that will be are exchanging. "DatabaseExchangeWrapper".
+    ☐ Make the support to DateUtils.
+      ☐ Make the now() method.
+        This method show the now date.
+      ☐ Make the format() method.
+        This method format the date.
+      ☐ Make the (final field) FORMAT, that is the default format of DateUtils methods.
+      ☐ Make the longToDate() method.
+        This method longToDate(long), that parse the (long) to date, and return with format.
+      ☐ Make the dateToLong() method.
+        This method dateToLong(date), that parse the (date) to long.
+
+    ✔ Change the method getMACAddress() in NetworkUtils, because to throw a error with message that the developer choose, because the getMACAddress() have a "in-exception", should getMACAddress() throws UnknownHostException, SocketException to the developer choose the messages that will be send when throw a exception. @done (17-02-27 12:41)
     
+    ✔ Rename the methods of Preconditions. @done (17-02-27 11:42)
+      The method (isTrue) was renamed to (checkArgument).
+      The method (notNull) was renamed to (checkNotNull).
+      ✔ Make the method checkState(). @done (17-02-27 11:42)
+        This method throw a error (IllegalStateException), instead of (IllegalArgumentException) like in method checkArgument().
+
+
+    ✔ Add the method (clear()) in ArrayUtils. @done (17-02-27 11:28)
+    ✔ Add the method (resize()) in ArrayUtils. @done (17-02-27 11:34)
+      This method resize the array,
+      Example if have a array that have (10 length), resize the array to (20 length).
+    ✔ Remove the method (makeAndPush()) of StringUtils, and move to ArrayUtils. @done (17-02-27 11:34)
+
+    ✔ Method resize() of FunctionalArray, have a change, because the resize() method use the combine() method to resize the array, but will be change to makeAndPush() to resize the method. @done (17-02-27 11:36)
+
     ✘ The FlamingoLibrary, about this library, don't know that continues this library, or migrate to the a one focus project, and the project that will be focus is the (File), like (FileUtils). @cancelled (17-02-26 16:22)
       ✘ Change the FlamingoLibrary project to the Flamingo-fileutils @cancelled (17-02-26 16:22)
       ✘ Change the project FlamingoLibrary to project Flamingo-fileutils. @cancelled (17-02-26 16:22)

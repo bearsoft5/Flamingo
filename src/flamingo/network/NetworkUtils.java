@@ -27,32 +27,27 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 
 public class NetworkUtils {
-
+	
 	/**
-	 * <pre>This method get MAC address of computer.</pre>
+	 * <pre>This method get the MAC address of host <i>host</i></pre>
 	 * @param host - the host.
 	 * @return - Returns the MAC address.
+	 * @throws UnknownHostException
+	 * @throws SocketException
 	 */
-	public static String getMACAddress(String host) {
-		try {
-//			InetAddress address = InetAddress.getByName(host);
-//			NetworkInterface ni = NetworkInterface.getByInetAddress(address);
-//			byte[] mac = ni.getHardwareAddress();
-			
-			// Make this to consume less memory, when execute the method.
-			byte[] mac = NetworkInterface.getByInetAddress(InetAddress.getByName(host)).getHardwareAddress();
+	public static String getMACAddress(String host) throws UnknownHostException, SocketException {
+		// InetAddress address = InetAddress.getByName(host);
+		// NetworkInterface ni = NetworkInterface.getByInetAddress(address);
+		// byte[] mac = ni.getHardwareAddress();
 
-			String macAddress = "";
-			for (int i = 0; i < mac.length; i++) {
-				macAddress += String.format("%02X-", mac[i]);
-			}
-			return macAddress.substring(0, macAddress.length() - 1);
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		} catch (SocketException e) {
-			e.printStackTrace();
+		// Make this to consume less memory, when execute the method.
+		byte[] mac = NetworkInterface.getByInetAddress(InetAddress.getByName(host)).getHardwareAddress();
+		String macAddress = "";
+		
+		for (int i = 0; i < mac.length; i++) {
+			macAddress += String.format("%02X-", mac[i]);
 		}
 
-		return null;
+		return macAddress.substring(0, macAddress.length() - 1);
 	}
 }

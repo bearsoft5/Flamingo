@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import flamingo.common.Preconditions;
+import flamingo.string.StringUtils;
 
 public class ListUtils {
 	
@@ -72,19 +73,15 @@ public class ListUtils {
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> List<T> parseList(String listString) {
-		Preconditions.notNull(listString, "The list string is null.");
-		
-		if (listString.length() == 0 || listString == null) return null;
+		Preconditions.checkArgument(StringUtils.isEmpty(listString), "The (listString) is empty or null.");
 		
 		listString = listString.substring(1, listString.length() - 1);
-
-		// Get elements.
-		String[] elements = listString.split(", ");
+		T[] elements = (T[]) listString.split(", "); // This part separate the elements.
 		
 		List<T> list = new ArrayList<>();
 		
-		for (String element : elements) {
-			list.add((T) element);
+		for (T element : elements) {
+			list.add(element);
 		}
 		
 		return list;

@@ -21,6 +21,8 @@
  */
 package flamingo.collection;
 
+import flamingo.common.Preconditions;
+
 public class ArrayUtils {
 	
 	/**
@@ -75,5 +77,47 @@ public class ArrayUtils {
 	@SafeVarargs
 	public static <T> T[] toArray(T... t) {
 		return t;
+	}
+
+	/**
+	 * <pre>This method clear array.</pre>
+	 * @param t - the t.
+	 * @return - Returns the array.
+	 */
+	public static <T> T[] clear(T[] t) {
+		for (int i = 0; i < t.length; i++) {
+			t[i] = null;
+		}
+		
+		return t;
+	}
+	
+	/**
+	 * <pre>This method resize the array <i>t</i>.</pre>
+	 * @param t - the array.
+	 * @param size - the size.
+	 * @return - Returns the new array with resize.
+	 */
+	public static <T> T[] resize(T[] t, int size) {
+		return makeAndPush(t, size);
+	}
+	
+	/**
+	 * <pre>This method make a new array, and push the array (push) to (array).</pre>
+	 * @param push - the push array.
+	 * @param size - the size.
+	 * @return - Returns the array.
+	 */
+	public static <T> T[] makeAndPush(T[] push, int size) {
+		Preconditions.checkArgument(push.length >= size, "The size can't be less or equals than (push) length.");
+		
+		@SuppressWarnings("unchecked")
+		T[] array = (T[]) new Object[size];
+		
+		for (int i = 0; i < push.length; i++) {
+			array[i] = push[i];
+		}
+		
+		return array;
 	}
 }

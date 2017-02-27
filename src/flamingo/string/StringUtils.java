@@ -137,25 +137,6 @@ public class StringUtils {
 	}
 	
 	/**
-	 * <pre>This method create a new array with a <i>{@code initialCapacity}<i>,
-	 * And get elements of the array <i>{@code stringArray}</i></i></pre>
-	 * @param initial_capacity - the initial capacity.
-	 * @param str_a - the string array.
-	 * @return - Returns the string array.
-	 */
-	public static String[] makeAndPush(int initialCapacity, String[] stringArray) {
-		Preconditions.isTrue(stringArray.length > initialCapacity, "The (initialCapacity) can\'t less than (stringArray) length.");
-
-		String[] str_a_1 = new String[initialCapacity];
-		
-		for (int i = 0; i < stringArray.length; i++) {
-			str_a_1[i] = stringArray[i];
-		}
-		
-		return str_a_1;
-	}
-	
-	/**
 	 * <pre>This method check if the (char sequence) is numeric.
 	 * 
 	 * isNumeric("+123") = false
@@ -184,5 +165,84 @@ public class StringUtils {
 	 */
 	public static boolean isEmpty(final CharSequence cs) {
 		return cs == null || cs.length() == 0;
+	}	
+	
+	/**
+	 * <pre>This method substring the (string), with start index and end index.
+	 * <strong>INFO: This method check if the string is (null or empty), before substring the string.</strong>
+	 * </pre>
+	 * @param string - the string.
+	 * @param start - the start.
+	 * @param end - the end.
+	 * @return - Returns the string.
+	 */
+	public static String substring(final String string, int start, int end) {
+		Preconditions.checkArgument(isEmpty(string), "The string is empty or null.");
+		return string.substring(start, end);
+	}
+	
+	/**
+	 * <pre>This method substring the (string), with index.
+	 * <strong>INFO: This method check if the string is (null or empty), before substring the string.</strong><
+	 * </pre>
+	 * @param string
+	 * @param index
+	 * @return
+	 */
+	public static String substring(final String string, int index) {
+		Preconditions.checkArgument(isEmpty(string), "The string is empty or null.");
+		return string.substring(index);
+	}
+	
+	/**
+	 * <pre>This method abbreviate the string with (start) index and (end) index.</pre>
+	 * @param string - the string.
+	 * @param start - the start.
+	 * @param end - the end.
+	 * @return - Returns the string.
+	 */
+	public static String abbreviate(final String string, int start, int end) {
+		String s = "..." + substring(string, start, end) + "...";
+		return s;
+	}
+	
+	/**
+	 * <pre>This method abbreviate the string with start index.</pre>
+	 * @param string - the string.
+	 * @param index - the index.
+	 * @return - Returns the string.
+	 */
+	public static String abbreviateStart(final String string, int index) {
+		String s = "..." + substring(string, index);
+		return s;
+	}
+	
+	/**
+	 * <pre>This method abbreviate the string with end index.</pre>
+	 * @param string - the string.
+	 * @param index - the index.
+	 * @return - Returns the string.
+	 */
+	public static String abbreviateEnd(final String string, int index) {
+		String s = substring(string, 0, string.length() - index) + "...";
+		return s;
+	}
+	
+	/**
+	 * <pre>This method inverse the string.</pre>
+	 * @param string - the string.
+	 * @return - Returns the string.
+	 */
+	public static String inverse(final String string) {
+		char[] stra = string.toCharArray();
+		int strlen = stra.length - 1;
+
+		char[] c = new char[stra.length];
+		
+		for (int i = 0; i < c.length; i++) {
+			c[i] = stra[strlen - i];
+		}
+		
+		return new String(c);
 	}
 }

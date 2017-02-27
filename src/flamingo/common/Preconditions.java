@@ -22,36 +22,43 @@
 package flamingo.common;
 
 /**
- * <pre><strong>INFO:</strong> This (Validate) is different of others validate like (Apache and Google),
- * This validate function that check if the (expression) is (true), and don't if the expression is (false),
+ * <pre><strong>INFO:</strong> This (Preconditions) is different of others Preconditions like (Apache and Google),
+ * This Preconditions function that check if the (expression) is (true), and don't if the expression is (false),
  * Like function on (Apache and Google).</pre>
  */
 public class Preconditions {
-
 	
 	/**
-	 * <pre>This method check if the (expression) is true,
-	 * and if the (expression) is true throw a error (IllegalArgumentException) with message (message).</pre>
+	 * <pre>This method check if the (expression) is (true),
+	 * And if the (expression) is (true), throw a error (IllegalArgumentException).</pre>
 	 * @param expression - the expression.
-	 * 					   This expression will be checked.
 	 * @param message - the message.
-	 * 					This message is the message that will be send if the (expression) is true.
 	 */
-	public static void isTrue(boolean expression, String message) {
+	public static void checkArgument(boolean expression, String message) {
 		if (expression) {
 			throw new IllegalArgumentException(message);
 		}
 	}
 	
 	/**
-	 * <pre>This method check if the (obj) is null,
-	 * And if the object is null throw a error (NullPointerException) with message (message).</pre>
-	 * @param obj - the object.
-	 * 				This objet will be checked.
-	 * @param message
-	 * 				The message that will be send if the object is null.
+	 * <pre>This method check if the (expression) is (true),
+	 * And if the (expression) is (true), throw a error (IllegalStateException).</pre>
+	 * @param expression - the expression.
+	 * @param message - the message.
 	 */
-	public static <T> void notNull(T obj, String message) {
+	public static void checkState(boolean expression, String message) {
+		if (expression) {
+			throw new IllegalStateException(message);
+		}
+	}
+	
+	/**
+	 * <pre>This method check if the (obj) is null,
+	 * And if the (obj) is null, throw a error (NullPointerException).</pre>
+	 * @param obj
+	 * @param message
+	 */
+	public static <T> void checkNotNull(T obj, String message) {
 		if (obj == null) {
 			throw new NullPointerException(message);
 		}

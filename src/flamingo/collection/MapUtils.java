@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import flamingo.common.Preconditions;
+import flamingo.string.StringUtils;
 
 public class MapUtils {
 	
@@ -35,8 +36,7 @@ public class MapUtils {
 	 */
 	@SuppressWarnings("unchecked")
 	public static <K, V> Map<K, V> parseMap(String mapString) {
-		// TODO: Check if hte string is not null.
-		Preconditions.notNull(mapString, "The map string is null.");
+		Preconditions.checkArgument(StringUtils.isEmpty(mapString), "The (mapString) is empty or null.");
 		
 		// {test1=a, test2=b}
 		//  test1=a, test2=b

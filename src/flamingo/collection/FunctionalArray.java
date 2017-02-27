@@ -52,7 +52,7 @@ public class FunctionalArray<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T pop() {
-		Preconditions.isTrue(elements.length == 0, "Don\'t use the method pop(), because the size is 0.");
+		Preconditions.checkArgument(elements.length == 0, "Don\'t use the method pop(), because the size is 0.");
 		
 		elements[size - 1] = null;
 		size--;
@@ -67,7 +67,7 @@ public class FunctionalArray<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T push(T obj) {
-		Preconditions.isTrue(size == elements.length, "Don\'t use the method push(), because the (size) of array is fully, try resize() method.");
+		Preconditions.checkArgument(size == elements.length, "Don\'t use the method push(), because the (size) of array is fully, try resize() method.");
 		
 		elements[size] = obj;
 		size++;
@@ -80,10 +80,8 @@ public class FunctionalArray<T> {
 	 * @param newSize - the new size "length".
 	 */
 	public void resize(int newSize) {
-		Preconditions.isTrue(elements.length >= newSize, "The array length can\'t less than (newSize).");
-		
-		Object[] elements_resize = new Object[newSize];
-		this.elements = ArrayUtils.combine(elements_resize, elements);
+		Preconditions.checkArgument(elements.length >= newSize, "The array length can\'t less than (newSize).");
+		this.elements = ArrayUtils.makeAndPush(this.elements, newSize);
 	}
 	
 	/**
