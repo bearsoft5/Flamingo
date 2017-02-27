@@ -21,6 +21,8 @@
  */
 package flamingo.string;
 
+import flamingo.common.Preconditions;
+
 public class StringUtils {
 
 	/**
@@ -108,12 +110,12 @@ public class StringUtils {
 	}
 	
 	/**
-	 * This method add the (str_a2) in (str_a1).
+	 * <pre>This method combie the (string array 1) with (string array 2)</pre>
 	 * @param str_a1 - the string array 1.
 	 * @param str_a2 - the string array 2.
 	 * @return - Returns the (string array) with (str_a1) and (str_a2).
 	 */
-	public static String[] join(String[] str_a1, String[] str_a2) {
+	public static String[] combine(String[] str_a1, String[] str_a2) {
 		int str_a_size = str_a1.length + str_a2.length; // 5, 5
 		String[] str_a = new String[str_a_size]; // 10
 		
@@ -141,8 +143,9 @@ public class StringUtils {
 	 * @param str_a - the string array.
 	 * @return - Returns the string array.
 	 */
-	public static String[] makeAndPull(int initialCapacity, String[] stringArray) {
-		if (stringArray.length > initialCapacity) throw new IllegalArgumentException("The (initial_capacity) can\'t less than (str_a) length.");
+	public static String[] makeAndPush(int initialCapacity, String[] stringArray) {
+		Preconditions.isTrue(stringArray.length > initialCapacity, "The (initialCapacity) can\'t less than (stringArray) length.");
+
 		String[] str_a_1 = new String[initialCapacity];
 		
 		for (int i = 0; i < stringArray.length; i++) {
@@ -175,19 +178,11 @@ public class StringUtils {
 	}
 	
 	/**
-	 * This method format the (string array) on (string).
-	 * @param str_a - the string array.
-	 * @return - Returns the string.
+	 * <pre>This method check if the <i>char sequence</i> is empty.</pre>
+	 * @param cs - the char sequence.
+	 * @return - Returns (true) if the <i>char sequence</i> is empty, otherwise return (false).
 	 */
-	public static String toStringArray(String[] str_a) {
-		StringBuilder s = new StringBuilder();
-		
-		s.append(str_a[0]);
-		
-		for (int i = 1; i < str_a.length; i++) {
-			s.append(", " + str_a[i]);
-		}
-		
-		return s.toString();
+	public static boolean isEmpty(final CharSequence cs) {
+		return cs == null || cs.length() == 0;
 	}
 }

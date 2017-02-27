@@ -19,35 +19,61 @@
  * | Authors: bearsoft <bearsoft5@hotmail.com>                            |
  * +----------------------------------------------------------------------+
  */
-package flamingo.common;
+package flamingo.collection;
 
-public class Validate {
-
+public class ArrayUtils {
+	
 	/**
-	 * <pre>This method check if the (expression) is true,
-	 * and if the (expression) is true throw a error (IllegalArgumentException) with message (message).</pre>
-	 * @param expression - the expression.
-	 * 					   This expression will be checked.
-	 * @param message - the message.
-	 * 					This message is the message that will be send if the (expression) is true.
+	 * <pre>This method make the string with <i>generic</i> array.</pre>
+	 * @param array - the array.
+	 * @return - Returns the string.
 	 */
-	public static void isTrue(boolean expression, String message) {
-		if (expression) {
-			throw new IllegalArgumentException(message);
+	public static <T> String toStringArray(T[] array) {
+		StringBuilder s = new StringBuilder();
+		s.append(array[0]);
+		
+		for (int i = 1; i < array.length; i++) {
+			s.append(", " + array[i]);
 		}
+		
+		return s.toString();
 	}
 	
 	/**
-	 * <pre>This method check if the (obj) is null,
-	 * And if the object is null throw a error (NullPointerException) with message (message).</pre>
-	 * @param obj - the object.
-	 * 				This objet will be checked.
-	 * @param message
-	 * 				The message that will be send if the object is null.
+	 * <pre>This method combine the <code>array1</code> with <code>array2</code>,
+	 * And return a array, with array combined.</pre>
+	 * @param array1 - the array 1.
+	 * @param array2 - the array 2.
+	 * @return - Returns the array.
 	 */
-	public static <T> void notNull(T obj, String message) {
-		if (obj == null) {
-			throw new NullPointerException(message);
+	@SuppressWarnings("unchecked")
+	public static <T> T[] combine(T[] array1, T[] array2) {
+		int array_size = array1.length + array2.length;
+		Object[] array = new Object[array_size];
+		
+		for (int i = 0, j = 0; i < array_size; i++) {
+			if (j == array1.length) {
+				j = 0;
+			}
+			
+			if (i < array1.length) {
+				array[i] = array1[j];
+			} else {
+				array[i] = array2[j];
+			}
+			
+			j++;
 		}
+		return (T[]) array;
+	}
+	
+	/**
+	 * <pre>This method convert the <i>...</i> to <i>[]</i.></pre>
+	 * @param t - the elements.
+	 * @return - Return the array.
+	 */
+	@SafeVarargs
+	public static <T> T[] toArray(T... t) {
+		return t;
 	}
 }

@@ -21,8 +21,6 @@
  */
 package flamingo;
 
-import flamingo.network.NetworkUtils;
-
 public class Test {
 
 	int a = 10;
@@ -31,8 +29,6 @@ public class Test {
 	public static void main(String[] args) throws Exception {
 
 		long start = System.currentTimeMillis();
-		
-		System.out.println(NetworkUtils.getMACAddress("192.168.1.35"));
 		
 		elapsed(start);
 		System.out.println("Finish.");
@@ -46,5 +42,9 @@ public class Test {
 	public static void mem(long sm) {
 		float em = sm - Runtime.getRuntime().freeMemory();
 		System.out.println("" + em / 1048576 + "mb, " + "" + em / 1024 + "kb, " + "" + em + "b.");
+	}
+	
+	public static void test() {
+		System.out.println("test1");
 	}
 }

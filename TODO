@@ -21,15 +21,21 @@ Flamingo:
     ☐ Start the project Flamingo-mclib.
 
   FlamingoLibrary:
-    Version 0.1.0a (alpha).
+    Version 0.1.1a (alpha).
 
+    The (Validate) class, was renamed to (Preconditions).
+    
     ✘ The FlamingoLibrary, about this library, don't know that continues this library, or migrate to the a one focus project, and the project that will be focus is the (File), like (FileUtils). @cancelled (17-02-26 16:22)
       ✘ Change the FlamingoLibrary project to the Flamingo-fileutils @cancelled (17-02-26 16:22)
       ✘ Change the project FlamingoLibrary to project Flamingo-fileutils. @cancelled (17-02-26 16:22)
 
-    ☐ Send the FlamingoLibrary project to GitHub.
+    ✔ Send the FlamingoLibrary project to GitHub. @done (17-02-26 18:11)
     ✔ Make support to String (String Utils). @done (17-02-24 18:39)
     ✔ Make support to Object (Object Utils). @done (17-02-24 18:39)
+
+    ✔ Migrate the FunctionalArray that is on package (flamingo) to (flamingo.collection). @done (17-02-26 22:58)
+
+    ✔ Remove the (flamingo.annotation) package. @done (17-02-26 22:59)
 
     ✔ Make the FlamingoArray @done (17-02-24 17:07)
       ✔ Test FlamingoArray performance. @done (17-02-24 17:07)
@@ -46,20 +52,30 @@ Flamingo:
       ✔ Method getMACAddress. @done (17-02-25 21:22)
         This method get MAC address of computer.
 
-    ☐ FieldUtils, about this create a (interface) that have a method like (invoke()) that make the function when the field is accessible, because the methods function, make the field like accessible, and the function invoke() was invoked, and after the method invoke() make the field like is not accessible.
+    ✔ Make ArrayUtils, to help in array things, and in this ArrayUtils have a (combine()) method, and remove the method combine() of classes (StringUtils, ObjectUtils). @done (17-02-26 22:56)
+    ✔ Also migrate the (StirngUtils, ObjectUtils) toStringArray() method to (ArrayUtils). @done (17-02-26 22:56)
+      With this the ObjectUtils is removed to the FlamingoLibrary.
+
+    ✘ FieldUtils, about this create a (interface) that have a method like (invoke()) that make the function when the field is accessible, because the methods function, make the field like accessible, and the function invoke() was invoked, and after the method invoke() make the field like is not accessible. @cancelled (17-02-26 22:41)
       The method that is similar with this, is the setAccessibleWorkaroundInvoke.
 
-    ☐ Make the ReflectionUtils.
+    ✔ Make the ReflectionUtils. @done (17-02-26 22:41)
       Make the reflection utils, because help in reflection things.
       ✔ Make the MemberUtils @done (17-02-24 17:45)
-      ☐ Make support to Reflection Method (Method Utils).
+      ✔ Make support to Reflection Method (Method Utils). @done (17-02-26 22:30)
+        ✘ Make support method annotations. @cancelled (17-02-26 22:45)
+          The method hasMethodAnnotation, to check if the method has annotation.
+          And if the method has annotation, return the annotation.
+
+            The support about method annotations, was cancelled, because don't is necessary,
+            and only will be consume more time execution.
 
       ✔ Make support to Reflection Field (Field Utils). @done (17-02-25 14:33)
         ✔ The methods (getField, getDeclaredField) are updated. @done (17-02-25 14:34)
           This method hasn't a checks about (name and class source),
           and now if the field is not accessible, make the field like accessible.
 
-          ☐ Put the method about the field accessible, that after use the field, make the field like is not accessible.
+          ✘ Put the method about the field accessible, that after use the field, make the field like is not accessible. @cancelled (17-02-26 22:41)
             This basically function like a cache, that a have a time to use the field, and after use the field make the field like not accessible, because make the field like accessible only use to do this, when use the method.
 
           ✔ The method (readStaticField, readStaticDeclaredField) is added, this method get the value of the static field. @done (17-02-25 15:07)
@@ -72,6 +88,11 @@ Flamingo:
               ✔ Method writeDeclaredField. @done (17-02-25 15:21)
               ✔ Method writeStaticField. @done (17-02-25 17:50)
               ✔ Method writeStaticDeclaredField. @done (17-02-25 17:50)
+
+          ✔ Rename arguments. @done (17-02-26 18:16)
+            ✔ FlamingoArray arguments. @done (17-02-26 18:16)
+            ✔ ListUtils arguments. @done (17-02-26 18:16)
+            ✔ MapUtils arguments. @done (17-02-26 18:16)
 
           ☐ Make the cache field?, the developers that use this library will be use this? Because the (Cache Fields) is the a class that save fields to the other class that help in reflection things, the fields can be (get, write, delete), also the (Cache Field) can be accessible by others classes or no, but yet the Flamingo don't know that this is a good to the productivy or no.
             The Cache Field is a (Virtual Fields) that help in classes that need a very fast production in fields instead of use reflection.

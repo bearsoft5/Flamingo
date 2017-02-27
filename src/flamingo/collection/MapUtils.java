@@ -24,6 +24,8 @@ package flamingo.collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import flamingo.common.Preconditions;
+
 public class MapUtils {
 	
 	/**
@@ -34,6 +36,7 @@ public class MapUtils {
 	@SuppressWarnings("unchecked")
 	public static <K, V> Map<K, V> parseMap(String mapString) {
 		// TODO: Check if hte string is not null.
+		Preconditions.notNull(mapString, "The map string is null.");
 		
 		// {test1=a, test2=b}
 		//  test1=a, test2=b
@@ -42,12 +45,12 @@ public class MapUtils {
 		mapString = mapString.substring(1, mapString.length() - 1);
 
 		// Get the keys and values.
-		String[] mapString_split_k = mapString.split(", ");
+		String[] keys = mapString.split(", ");
 
 		// Get the key and value.
-		for (String mapString_split_k_v : mapString_split_k) {
-			String[] mapString_split_k_v_1 = mapString_split_k_v.split("=");
-			map.put((K) mapString_split_k_v_1[0].trim(), (V) mapString_split_k_v_1[1].trim());
+		for (String keyAndValues : keys) {
+			String[] keyAndValue = keyAndValues.split("=");
+			map.put((K) keyAndValue[0].trim(), (V) keyAndValue[1].trim());
 		}
 		
 		return map;

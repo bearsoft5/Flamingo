@@ -19,9 +19,9 @@
  * | Authors: bearsoft <bearsoft5@hotmail.com>                            |
  * +----------------------------------------------------------------------+
  */
-package flamingo;
+package flamingo.collection;
 
-import flamingo.object.ObjectUtils;
+import flamingo.common.Preconditions;
 
 /**
  * StringArray, class.
@@ -34,15 +34,15 @@ import flamingo.object.ObjectUtils;
  */
 public class FunctionalArray<T> {
 
-	private Object[] obj_a;
+	private Object[] elements;
 	private int size;
 	
 	/**
 	 * FlamingoArray, conobjuctor.
-	 * @param initial_capacity - this represents the initial capacity of string array.
+	 * @param initialCapacity - this represents the initial capacity of string array.
 	 */
-	public FunctionalArray(int initial_capacity) {
-		obj_a = new Object[initial_capacity];
+	public FunctionalArray(int initialCapacity) {
+		elements = new Object[initialCapacity];
 		size = 0;
 	}
 	
@@ -52,12 +52,12 @@ public class FunctionalArray<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T pop() {
-		if (obj_a.length == 0) throw new IllegalArgumentException("Don\'t use the method pop(), (objing array) length is 0.");
+		Preconditions.isTrue(elements.length == 0, "Don\'t use the method pop(), because the size is 0.");
 		
-		obj_a[size - 1] = null;
+		elements[size - 1] = null;
 		size--;
 		
-		return (T) obj_a[obj_a.length - 2];
+		return (T) elements[size - 2];
 	}
 	
 	/**
@@ -67,23 +67,23 @@ public class FunctionalArray<T> {
 	 */
 	@SuppressWarnings("unchecked")
 	public T push(T obj) {
-		if (size == obj_a.length) throw new IllegalArgumentException("Don\'t use the method push(obj), because the (size) of objing array is fully, try use the resize() method.");
+		Preconditions.isTrue(size == elements.length, "Don\'t use the method push(), because the (size) of array is fully, try resize() method.");
 		
-		obj_a[size] = obj;
+		elements[size] = obj;
 		size++;
 		
-		return (T) obj_a[size - 1];
+		return (T) elements[size - 1];
 	}
 	
 	/**
 	 * This method resize the parameter.
-	 * @param new_size - the new size "length".
+	 * @param newSize - the new size "length".
 	 */
-	public void resize(int new_size) {
-		if (obj_a.length >= new_size) throw new IllegalArgumentException("The (objing array) length can\'t less than or equals (new_size).");
+	public void resize(int newSize) {
+		Preconditions.isTrue(elements.length >= newSize, "The array length can\'t less than (newSize).");
 		
-		Object[] obj_a_resize = new Object[new_size];
-		this.obj_a = ObjectUtils.join(obj_a_resize, obj_a);
+		Object[] elements_resize = new Object[newSize];
+		this.elements = ArrayUtils.combine(elements_resize, elements);
 	}
 	
 	/**
@@ -96,18 +96,15 @@ public class FunctionalArray<T> {
 		if (size == 0) return null;
 		
 		// The first index.
-		obj_a[0] = null;
+		elements[0] = null;
 		
-		int objl = obj_a.length - 1;
-		
-		// 0 - 0, 1 - 1, 2 - 2, 3 - 3, 4 - 4
-		// 0 - 1, 1 - 2, 2 - 3, 3 - 4
+		int objl = elements.length - 1;
 		
 		for (int i = 0; i < objl; i++) {
-			obj_a[i] = obj_a[i + 1];
+			elements[i] = elements[i + 1];
 		}
 		
-		return (T) obj_a[0];
+		return (T) elements[0];
 	}
 	
 	/**
@@ -115,8 +112,8 @@ public class FunctionalArray<T> {
 	 * @return - Returns the string array.
 	 */
 	@SuppressWarnings("unchecked")
-	public T[] get_obj_a() {
-		return (T[]) obj_a;
+	public T[] getArray() {
+		return (T[]) elements;
 	}
 	
 	/**

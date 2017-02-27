@@ -24,7 +24,7 @@ package flamingo.reflect;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
-import flamingo.common.Validate;
+import flamingo.common.Preconditions;
 
 public class FieldUtils {
 
@@ -38,8 +38,8 @@ public class FieldUtils {
 	 * @return - Returns the field.
 	 */
 	public static Field getField(String name, Class<?> src) {
-		Validate.notNull(src, "The class (src) is null.");
-		Validate.isTrue(name.length() == 0 || name == null, "The field name (name) is length 0, or is null.");
+		Preconditions.notNull(src, "The class (src) is null.");
+		Preconditions.isTrue(name.length() == 0 || name == null, "The field name (name) is length 0, or is null.");
 
 		try {
 			Field f = src.getField(name);
@@ -65,8 +65,8 @@ public class FieldUtils {
 	 * @return - Returns the field.
 	 */
 	public static Field getDeclaredField(String name, Class<?> src) {
-		Validate.notNull(src, "The class (src) is null.");
-		Validate.isTrue(name.length() == 0 || name == null, "The field name (name) is length 0, or is null.");
+		Preconditions.notNull(src, "The class (src) is null.");
+		Preconditions.isTrue(name.length() == 0 || name == null, "The field name (name) is length 0, or is null.");
 
 		try {
 			Field f = src.getDeclaredField(name);
@@ -99,11 +99,11 @@ public class FieldUtils {
 	 * @return - Returns the value of static declared field.
 	 */
 	public static Object readStaticDeclaredField(String name, Class<?> src) {
-		Validate.notNull(src, "The object is null.");
-		Validate.isTrue(name.length() == 0 || name == null, "The field name (name) is length 0, or is null.");
+		Preconditions.notNull(src, "The object is null.");
+		Preconditions.isTrue(name.length() == 0 || name == null, "The field name (name) is length 0, or is null.");
 		try {
 			Field f = src.getDeclaredField(name);
-			Validate.isTrue(!Modifier.isStatic(f.getModifiers()), "The field is not static.");
+			Preconditions.isTrue(!Modifier.isStatic(f.getModifiers()), "The field is not static.");
 			
 			// This method check if the field is not accessible,
 			// If the field is not accessible, make the field like accessible.
@@ -134,12 +134,12 @@ public class FieldUtils {
 	 * @return - Returns the value of static declared field.
 	 */
 	public static Object readStaticField(String name, Class<?> src) {
-		Validate.notNull(src, "The object is null.");
-		Validate.isTrue(name.length() == 0 || name == null, "The field name (name) is length 0, or is null.");
+		Preconditions.notNull(src, "The object is null.");
+		Preconditions.isTrue(name.length() == 0 || name == null, "The field name (name) is length 0, or is null.");
 
 		try {
 			Field f = src.getField(name);
-			Validate.isTrue(!Modifier.isStatic(f.getModifiers()), "The field is not static.");
+			Preconditions.isTrue(!Modifier.isStatic(f.getModifiers()), "The field is not static.");
 			
 			// This method check if the field is not accessible,
 			// If the field is not accessible, make the field like accessible.
@@ -198,7 +198,7 @@ public class FieldUtils {
 	public static void writeStaticDeclaredField(String name, Object value, Class<?> src) {
 		try {
 			Field f = src.getDeclaredField(name);
-			Validate.isTrue(!Modifier.isStatic(f.getModifiers()), "The field is not static.");
+			Preconditions.isTrue(!Modifier.isStatic(f.getModifiers()), "The field is not static.");
 			
 			// This method check if the field is not accessible,
 			// If the field is not accessible, make the field like accessible.
@@ -223,7 +223,7 @@ public class FieldUtils {
 	public static void writeStaticField(String name, Object value, Class<?> src) {
 		try {
 			Field f = src.getField(name);
-			Validate.isTrue(!Modifier.isStatic(f.getModifiers()), "The field is not static.");
+			Preconditions.isTrue(!Modifier.isStatic(f.getModifiers()), "The field is not static.");
 			
 			// This method check if the field is not accessible,
 			// If the field is not accessible, make the field like accessible.

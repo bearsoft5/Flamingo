@@ -24,15 +24,17 @@ package flamingo.collection;
 import java.util.ArrayList;
 import java.util.List;
 
+import flamingo.common.Preconditions;
+
 public class ListUtils {
 	
 	/**
-	 * <pre>This method join the (list 1) with (list 2).</pre>
+	 * <pre>This method combine the (list 1) with (list 2).</pre>
 	 * @param listSrc - the list source.
 	 * @param listJoin - the list join.
 	 * @return - Returns the list.
 	 */
-	public static <T> List<T> join(List<T> listSrc, List<T> listJoin) {
+	public static <T> List<T> combine(List<T> listSrc, List<T> listJoin) {
 		// Get the elements of (list_join) and add on (list_src).
 		for (T t : listJoin) {
 			listSrc.add(t);
@@ -70,17 +72,19 @@ public class ListUtils {
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T> List<T> parseList(String listString) {
+		Preconditions.notNull(listString, "The list string is null.");
+		
 		if (listString.length() == 0 || listString == null) return null;
 		
 		listString = listString.substring(1, listString.length() - 1);
 
 		// Get elements.
-		String[] listString_k = listString.split(", ");
+		String[] elements = listString.split(", ");
 		
 		List<T> list = new ArrayList<>();
 		
-		for (String listString_k_1 : listString_k) {
-			list.add((T) listString_k_1);
+		for (String element : elements) {
+			list.add((T) element);
 		}
 		
 		return list;

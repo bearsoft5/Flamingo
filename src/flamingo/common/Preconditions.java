@@ -19,51 +19,41 @@
  * | Authors: bearsoft <bearsoft5@hotmail.com>                            |
  * +----------------------------------------------------------------------+
  */
-package flamingo.object;
+package flamingo.common;
 
-public class ObjectUtils {
+/**
+ * <pre><strong>INFO:</strong> This (Validate) is different of others validate like (Apache and Google),
+ * This validate function that check if the (expression) is (true), and don't if the expression is (false),
+ * Like function on (Apache and Google).</pre>
+ */
+public class Preconditions {
 
+	
 	/**
-	 * This method add object array (ob_a2) in (obj_a1).
-	 * @param obj_a1 - the object array 1.
-	 * @param obj_a2 - the object array 2.
-	 * @return - Returns the object array with (obj_a1) and (obj_a2).
+	 * <pre>This method check if the (expression) is true,
+	 * and if the (expression) is true throw a error (IllegalArgumentException) with message (message).</pre>
+	 * @param expression - the expression.
+	 * 					   This expression will be checked.
+	 * @param message - the message.
+	 * 					This message is the message that will be send if the (expression) is true.
 	 */
-	public static Object[] join(Object[] obj_a1, Object[] obj_a2) {
-		int obj_a_size = obj_a1.length + obj_a2.length; // 5, 5
-		Object[] obj_a = new Object[obj_a_size]; // 10
-		
-		for (int i = 0, j = 0; i < obj_a_size; i++) { // 0 - 9 ( < 10 )
-			if (j == obj_a1.length) {
-				j = 0;
-			}
-			
-			if (i < obj_a1.length) { // =5 (0, 1, 2, 3, 4) (<5)
-				obj_a[i] = obj_a1[j];
-			} else {
-				obj_a[i] = obj_a2[j];
-			}
-			
-			j++;
+	public static void isTrue(boolean expression, String message) {
+		if (expression) {
+			throw new IllegalArgumentException(message);
 		}
-		
-		return obj_a;
 	}
 	
 	/**
-	 * This method make the string of object array.
-	 * @param obj_a - the object array.
-	 * @return - Returns the string.
+	 * <pre>This method check if the (obj) is null,
+	 * And if the object is null throw a error (NullPointerException) with message (message).</pre>
+	 * @param obj - the object.
+	 * 				This objet will be checked.
+	 * @param message
+	 * 				The message that will be send if the object is null.
 	 */
-	public static String toStringObjectArray(Object[] obj_a) {
-		StringBuilder s = new StringBuilder();
-		
-		s.append(obj_a[0]);
-		
-		for (int i = 1; i < obj_a.length; i++) {
-			s.append(", " + obj_a[i]);
+	public static <T> void notNull(T obj, String message) {
+		if (obj == null) {
+			throw new NullPointerException(message);
 		}
-		
-		return s.toString();
 	}
 }
