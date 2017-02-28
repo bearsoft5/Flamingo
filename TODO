@@ -21,10 +21,28 @@ Flamingo:
     ☐ Start the project Flamingo-mclib.
 
   FlamingoLibrary:
-    Version 0.1.2a (alpha).
+    Version 0.1.3a (alpha).
 
     The (Validate) class, was renamed to (Preconditions).
 
+    ✔ Make the FunctionalCache. @done (17-02-28 14:31)
+      The FunctionalCache, is a cache that save the informations that are (key and value), in only string, but yet don't tested if this cache consume lower memory that (List, Map), but is more faster to getValue(), and others methods that are in FunctionalCache.
+        ✔ Make (cache field) that save informations. @done (17-02-28 14:31)
+        ✔ Make the add() method. @done (17-02-28 14:31)
+          This method add the (key and value) in cache.
+        ✔ Make the getValue() method. @done (17-02-28 14:31)
+          This method get value of key in cache, if the key isn't exists return (null).
+        ✔ Make the cache() method. @done (17-02-28 14:32)
+          This method get cache.
+        ✔ Make the clear() method. @done (17-02-28 14:32)
+          This method clear cache.
+        ✔ Make the remove() method. @done (17-02-28 14:32)
+          This method remove the key and value of cache.
+        ✔ Make the check of key in method add(), this check, is if the key exists in cache, update the value of key. @done (17-02-28 15:02)
+          This add check to method add(), check if the key exists, and if the key exists only update the value of key in cache.
+        ✔ Make the containsKey() method. @done (17-02-28 14:34)
+          This method check if the key exists in cache.
+        ✔ Rename getVaule() method to get() method. @done (17-02-28 15:11)
     ☐ Make the support to File (FileUtils).
       ☐ Make the easily creation of files and directories.
       ☐ Make the easily copy and paste archives, and move archives.
@@ -50,16 +68,13 @@ Flamingo:
       ☐ Make the "IngoingDatabaseWrapper" that is a (class) that have a "informations" about anything and when QueryWrapper query this (class) send the informations to Database.
       ☐ Make the "OutgoingDatabaseWrapper" that is a (class) that is a connected with the Database and when QueryWrapper query this (class) send the informations of Database to "OutgoingDatabaseWrapper" that is a (class), that receive the all informations of database, or only the informations that QueryWrapper selected.
       ☐ Make the central of communication of QueryWrapper with Database, and this central receive all informations that will be transported of "QueryWrapper to Database" and "Database to QueryWrapper", and more easily management the informations that will be are exchanging. "DatabaseExchangeWrapper".
-    ☐ Make the support to DateUtils.
-      ☐ Make the now() method.
+    ✔ Make the support to DateUtils. @done (17-02-27 13:44)
+      ✔ Make the now() method. @done (17-02-27 13:44)
         This method show the now date.
-      ☐ Make the format() method.
+      ✔ Make the format() method. @done (17-02-27 13:44)
         This method format the date.
-      ☐ Make the (final field) FORMAT, that is the default format of DateUtils methods.
-      ☐ Make the longToDate() method.
-        This method longToDate(long), that parse the (long) to date, and return with format.
-      ☐ Make the dateToLong() method.
-        This method dateToLong(date), that parse the (date) to long.
+      ✔ Make the (final field) FORMAT, that is the default format of DateUtils methods. @done (17-02-27 13:44)
+      ✔ Make the stringToDateLong() method. @done (17-02-27 13:48)
 
     ✔ Change the method getMACAddress() in NetworkUtils, because to throw a error with message that the developer choose, because the getMACAddress() have a "in-exception", should getMACAddress() throws UnknownHostException, SocketException to the developer choose the messages that will be send when throw a exception. @done (17-02-27 12:41)
     

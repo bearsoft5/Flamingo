@@ -25,6 +25,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
 import flamingo.common.Preconditions;
+import flamingo.string.StringUtils;
 
 public class FieldUtils {
 
@@ -66,7 +67,7 @@ public class FieldUtils {
 	 */
 	public static Field getDeclaredField(String name, Class<?> src) {
 		Preconditions.checkNotNull(src, "The class (src) is null.");
-		Preconditions.checkArgument(name.length() == 0 || name == null, "The field name (name) is length 0, or is null.");
+		Preconditions.checkArgument(StringUtils.isEmpty(name), "The field name (name) is length 0, or is null.");
 
 		try {
 			Field f = src.getDeclaredField(name);
@@ -100,7 +101,7 @@ public class FieldUtils {
 	 */
 	public static Object readStaticDeclaredField(String name, Class<?> src) {
 		Preconditions.checkNotNull(src, "The object is null.");
-		Preconditions.checkArgument(name.length() == 0 || name == null, "The field name (name) is length 0, or is null.");
+		Preconditions.checkArgument(StringUtils.isEmpty(name), "The field name (name) is length 0, or is null.");
 		try {
 			Field f = src.getDeclaredField(name);
 			Preconditions.checkArgument(!Modifier.isStatic(f.getModifiers()), "The field is not static.");
@@ -135,7 +136,7 @@ public class FieldUtils {
 	 */
 	public static Object readStaticField(String name, Class<?> src) {
 		Preconditions.checkNotNull(src, "The object is null.");
-		Preconditions.checkArgument(name.length() == 0 || name == null, "The field name (name) is length 0, or is null.");
+		Preconditions.checkArgument(StringUtils.isEmpty(name), "The field name (name) is length 0, or is null.");
 
 		try {
 			Field f = src.getField(name);

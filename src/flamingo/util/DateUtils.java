@@ -19,51 +19,49 @@
  * | Authors: bearsoft <bearsoft5@hotmail.com>                            |
  * +----------------------------------------------------------------------+
  */
-package flamingo;
+package flamingo.util;
 
-import flamingo.collection.FunctionalCache;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-//import flamingo.collection.FunctionalCache;
+import flamingo.common.Preconditions;
 
-public class Test {
+public class DateUtils {
 
-	int a = 10;
-	static int b = 9;
+	public static final SimpleDateFormat FORMAT = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
 	
-	public static void main(String[] args) throws Exception {
-//		FunctionalCache cache = new FunctionalCache();
-//		cache.add("test1", "This is a test, of method getValue() of functional array, the (class) FunctionalArray, is a class that save a informations in cache with using only 8 bytes.");
-//		
-//		for (int i = 2; i < 1000; i++) {
-//			cache.add("test" + i, i);
-//		}
-		
-		long start = System.currentTimeMillis();
-		
-		FunctionalCache cache = new FunctionalCache();
-		cache.add("test1", 1);
-		cache.add("test2", 2);
-		cache.add("test3", 3);
-		cache.add("test4", 4);
-		
-		System.out.println(cache.cache());
-		System.out.println(cache.size());
-		
-		elapsed(start);
-		System.out.println("Finish.");
+	/**
+	 * <pre>This methd format the now date.</pre>
+	 * @return - Returns the date string.
+	 */
+	public static String now() {
+		return FORMAT.format(new Date());
 	}
 	
-	public static void elapsed(long start) {
-		float end = System.currentTimeMillis() - start;
-		System.out.println("" + end / 1000 + "s or (" + end + "ms).");
+	/**
+	 * <pre>This method format the now date, with a <i>format</i></pre>
+	 * @param format - the format.
+	 * @return - Returns teh date format.
+	 */
+	public static String now(DateFormat format) {
+		Preconditions.checkNotNull(format, "The format is null.");
+		return format.format(new Date());
 	}
 	
-	public static void mem(long sm) {
-		float em = sm - Runtime.getRuntime().freeMemory();
-		System.out.println("" + em / 1048576 + "mb, " + "" + em / 1024 + "kb, " + "" + em + "b.");
-	}
-	
-	public static void test() {
-		System.out.println("test1");
+	/**
+	 * <pre>This method parse the <i>string</i> to long.</pre>
+	 * @param string - the string.
+	 * @return - Returns the long.
+	 */
+	@SuppressWarnings("deprecation")
+	public static long stringToDateLong(String string) {
+		try {
+			return Date.parse(string);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return 0L;
 	}
 }
